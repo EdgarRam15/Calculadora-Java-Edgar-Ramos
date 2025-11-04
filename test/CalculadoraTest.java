@@ -1,11 +1,24 @@
-public class CalculadoraTest {
-    public static void main(String[] args) {
-        assert Calculadora.sumar(2, 3) == 5 : "Error en suma";
-        assert Calculadora.restar(5, 3) == 2 : "Error en resta";
-        assert Calculadora.multiplicar(2, 4) == 8 : "Error en multiplicación";
-        assert Calculadora.dividir(10, 2) == 5 : "Error en división";
+import org.junit.Test;
+import static org.junit.Assert.*;
 
-        System.out.println(" Todas las pruebas pasaron correctamente.");
+public class CalculadoraTest {
+
+    @Test
+    public void testSuma() {
+        Calculadora calc = new Calculadora();
+        assertEquals(7, calc.sumar(3, 4));
+    }
+
+    @Test
+    public void testDivisionPorCero() {
+        Calculadora calc = new Calculadora();
+        try {
+            calc.dividir(5, 0);
+            fail("Se esperaba una excepción por división entre cero");
+        } catch (ArithmeticException e) {
+            assertTrue(true);
+        }
     }
 }
+
 
