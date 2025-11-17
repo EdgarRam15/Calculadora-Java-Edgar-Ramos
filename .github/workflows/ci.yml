@@ -21,7 +21,7 @@ jobs:
         distribution: "temurin"
 
     - name: Compilar y ejecutar pruebas
-      run: mvn -B package
+      run: mvn -B package --file pom.xml
 
     - name: Guardar artefacto (JAR)
       uses: actions/upload-artifact@v3
